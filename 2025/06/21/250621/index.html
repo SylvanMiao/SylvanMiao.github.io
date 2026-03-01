@@ -14,22 +14,22 @@
   
 
   
-  <title>LeetCode记录 | Miao&#39;s Blog</title>
+  <title>数据结构与算法实践笔记 | Miao&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="1. 数学 2. 数组 3. 链表 4. 哈希散列 5. 栈与队列 6. 类与OOP应用 7. 二叉树 8. 回溯 9. 贪心 10. 动态规划 11. 单调栈 12. 图论 12.1 理论基础 12.2 深度优先搜索理论基础 12.3 广度优先搜索理论基础 12.4 并查集理论基础 12.5 案例     1. 数学1.1 基础有一天, 小明收到一张奇怪的信, 信上要小明计算出给定数各个位上">
+  <meta name="description" content="本文记录在算法学习过程中的问题拆解、模型抽象与思路复盘。相比结果，更关注思考路径与方法沉淀，希望通过持续整理，构建稳定的解题框架与认知结构。   1. 数学 2. 数组 3. 链表 4. 哈希散列 5. 栈与队列 6. 类与OOP应用 7. 二叉树 8. 回溯 9. 贪心 10. 动态规划 11. 单调栈 12. 图论 12.1 理论基础 12.2 深度优先搜索理论基础 12.3 广度优先搜索理论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode记录">
+<meta property="og:title" content="数据结构与算法实践笔记">
 <meta property="og:url" content="https://miustannis.github.io/2025/06/21/250621/index.html">
 <meta property="og:site_name" content="Miao&#39;s Blog">
-<meta property="og:description" content="1. 数学 2. 数组 3. 链表 4. 哈希散列 5. 栈与队列 6. 类与OOP应用 7. 二叉树 8. 回溯 9. 贪心 10. 动态规划 11. 单调栈 12. 图论 12.1 理论基础 12.2 深度优先搜索理论基础 12.3 广度优先搜索理论基础 12.4 并查集理论基础 12.5 案例     1. 数学1.1 基础有一天, 小明收到一张奇怪的信, 信上要小明计算出给定数各个位上">
+<meta property="og:description" content="本文记录在算法学习过程中的问题拆解、模型抽象与思路复盘。相比结果，更关注思考路径与方法沉淀，希望通过持续整理，构建稳定的解题框架与认知结构。   1. 数学 2. 数组 3. 链表 4. 哈希散列 5. 栈与队列 6. 类与OOP应用 7. 二叉树 8. 回溯 9. 贪心 10. 动态规划 11. 单调栈 12. 图论 12.1 理论基础 12.2 深度优先搜索理论基础 12.3 广度优先搜索理论">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://miustannis.github.io/images/Leetcode/LeetCode.webp">
 <meta property="article:published_time" content="2025-06-21T13:19:05.000Z">
-<meta property="article:modified_time" content="2025-11-12T02:31:08.527Z">
+<meta property="article:modified_time" content="2026-03-01T14:19:51.112Z">
 <meta property="article:author" content="miao">
 <meta property="article:tag" content="CS">
 <meta name="twitter:card" content="summary">
@@ -172,7 +172,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cmm0f6x480010cguqfyst56fi">
+      <a class="article-gallery-img" rel="gallery_cmm7u7cj0001xrguqcozpazwf">
         <img src="/images/Leetcode/LeetCode.webp" itemprop="image">
       </a>
     
@@ -189,7 +189,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        LeetCode记录
+        数据结构与算法实践笔记
       </h1>
     
   
@@ -217,7 +217,8 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <!-- toc -->
+          <p>本文记录在算法学习过程中的问题拆解、模型抽象与思路复盘。相比结果，更关注思考路径与方法沉淀，希望通过持续整理，构建稳定的解题框架与认知结构。</p>
+<!-- toc -->
 <ul>
 <li><a href="#1-数学">1. 数学</a></li>
 <li><a href="#2-数组">2. 数组</a></li>
@@ -7679,8 +7680,6 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
     <span class="token comment">// 明确没有入度为2的情况，那么一定有有向环，找到构成环的边返回就可以了</span>
     <span class="token function">getRemoveEdge</span><span class="token punctuation">(</span>edges<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>&nbsp;</p>
-<p>代码随想录一刷结束了，纪念一下。</p>
 <link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
         
       </div>
