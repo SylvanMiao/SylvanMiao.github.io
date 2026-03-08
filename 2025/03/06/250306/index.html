@@ -20,12 +20,12 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="目录：  Lecture 0 Scratch Lecture 1 C Lecture 2 Arrays Lecture 3 Algorithms Lecture 4 Memory Lecture 5 Data Structures Lecture 6 Python, Artificial Intelligence Lecture 7 SQL Lecture 8 HTML, CSS, JavaScr">
+  <meta name="description" content="目录：   Lecture 0 Scratch Lecture 1 C Lecture 2 Arrays Lecture 3 Algorithms Lecture 4 Memory Lecture 5 Data Structures Lecture 6 Python, Artificial Intelligence Lecture 7 SQL Lecture 8 HTML, CSS, JavaSc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Harvard CS50 Study Log">
 <meta property="og:url" content="https://miustannis.github.io/2025/03/06/250306/index.html">
 <meta property="og:site_name" content="Miao&#39;s Blog">
-<meta property="og:description" content="目录：  Lecture 0 Scratch Lecture 1 C Lecture 2 Arrays Lecture 3 Algorithms Lecture 4 Memory Lecture 5 Data Structures Lecture 6 Python, Artificial Intelligence Lecture 7 SQL Lecture 8 HTML, CSS, JavaScr">
+<meta property="og:description" content="目录：   Lecture 0 Scratch Lecture 1 C Lecture 2 Arrays Lecture 3 Algorithms Lecture 4 Memory Lecture 5 Data Structures Lecture 6 Python, Artificial Intelligence Lecture 7 SQL Lecture 8 HTML, CSS, JavaSc">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://miustannis.github.io/images/cs50/CS50_pic.webp">
 <meta property="article:published_time" content="2025-03-06T12:39:18.000Z">
@@ -172,7 +172,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cmmh5s9ty001b00uqd36r8uz5">
+      <a class="article-gallery-img" rel="gallery_cmmh6c2xs000occuqa7bbgfw9">
         <img src="/images/cs50/CS50_pic.webp" itemprop="image">
       </a>
     
@@ -218,6 +218,7 @@
       <div class="e-content article-entry" itemprop="articleBody">
         
           <h2><span id="目录"><strong>目录：</strong></span></h2><!-- toc -->
+
 <ul>
 <li><a href="#lecture-0-scratch"><strong>Lecture 0 Scratch</strong></a></li>
 <li><a href="#lecture-1-c"><strong>Lecture 1 C</strong></a></li>
@@ -232,6 +233,7 @@
 <li><a href="#lecture-10-cybersecurity"><strong>Lecture 10 Cybersecurity</strong></a></li>
 </ul>
 <!-- tocstop -->
+
 <h3><span id="lecture-0-scratch"><strong>Lecture 0 Scratch</strong></span></h3><h3><span id="lecture-1-c"><strong>Lecture 1 C</strong></span></h3><h3><span id="lecture-2-arrays"><strong>Lecture 2 Arrays</strong></span></h3><h3><span id="lecture-3-algorithms"><strong>Lecture 3 Algorithms</strong></span></h3><ul>
 <li><strong>Time Complexity</strong> is an important metric used to measure the relationship between the running time of an algorithm and the size of the input. It describes how the execution time of an algorithm increases as the input size grows. Time complexity helps us assess the efficiency of an algorithm under different problem sizes, allowing us to choose the most appropriate algorithm. Time complexity is usually expressed using Big $O$ notation. <ol>
 <li>selection sort:     $ O(n^2) $</li>
@@ -243,7 +245,7 @@
 </ul>
 <p>&nbsp;</p>
 <h3><span id="lecture-4-memory"><strong>Lecture 4 Memory</strong></span></h3><ul>
-<li><p>This section basically start from the pixels which formed by RGB code, for example 0xFF0000(using hexadecimal or base16 — <strong>0x</strong>) . Why hexadecimal ?  Using binary, it takes 4 bits to represent 16 possibilities. Using hexadecimal, 4 bits -&gt; one digit, that’s easier. So one byte, two of them, is a common unit of measurement.</p>
+<li><p>This section basically start from the pixels which formed by RGB code, for example 0xFF0000(using hexadecimal or base16 – <strong>0x</strong>) . Why hexadecimal ?  Using binary, it takes 4 bits to represent 16 possibilities. Using hexadecimal, 4 bits -&gt; one digit, that’s easier. So one byte, two of them, is a common unit of measurement.</p>
 <center>
     <img src="/images/cs50/cs50_1.webp" width="800">
 </center>
@@ -258,6 +260,7 @@
 <span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token operator">&amp;</span>n<span class="token punctuation">;</span> <span class="token comment">// also int* p = &amp;n; they are the same, to specify a data type</span>
 <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%p\n"</span><span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// -- same address above</span>
 <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%i\n"</span><span class="token punctuation">,</span> <span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// *p: go there --50</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p> “&amp;a” means the address of a, “*“ is a dereference operator, which allows you to take an address, and <strong>go to</strong> it.</p>
 <p>By convention, pointers take up more space, they account for 8 bytes. 32-bit machine differs from 64-bit machine in the width of address bus, where 64-bit machine has larger memory.</p>
 </li>
@@ -275,6 +278,7 @@ string s <span class="token operator">=</span> <span class="token string">"CS50!
 <span class="token comment">//typedef char* string; !!</span>
 
 <span class="token comment">//char* s = "CS50!"; "&amp;" is not needed here because CLANG puts the address of the first char in the variable when a double quote shows up.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p><strong>s is technically a pointer</strong>, to find the beginning of the string.</p>
 </li>
 <li><p>pointer arithmetic: doing math on addresses </p>
@@ -293,9 +297,6 @@ string s <span class="token operator">=</span> <span class="token string">"CS50!
 
 
 
-</li>
-</ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -304,10 +305,9 @@ string s <span class="token operator">=</span> <span class="token string">"CS50!
 <th>堆（Heap）</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>管理方式</td>
-<td>自动（编译器/操作系统）</td>
+<td>自动（编译器&#x2F;操作系统）</td>
 <td>手动（程序员malloc）</td>
 </tr>
 <tr>
@@ -335,10 +335,8 @@ string s <span class="token operator">=</span> <span class="token string">"CS50!
 <td>无</td>
 <td>可能产生内存碎片</td>
 </tr>
-</tbody>
-</table>
-</div>
-  <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//program for string operating</span>
+</tbody></table>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//program for string operating</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;ctype.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
@@ -374,7 +372,7 @@ string s <span class="token operator">=</span> <span class="token string">"CS50!
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span class="token comment">// Upper the first Character</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+</li>
 <li><p>valgrind: prog that check memory mistake</p>
 <center>
     <img src="/images/cs50/cs50_2.webp" width="800">
@@ -388,11 +386,12 @@ string s <span class="token operator">=</span> <span class="token string">"CS50!
     <span class="token operator">*</span>a <span class="token operator">=</span> <span class="token operator">*</span>b<span class="token punctuation">;</span>
     <span class="token operator">*</span>b <span class="token operator">=</span> temp
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <center>
     <img src="/images/cs50/cs50_4.webp" width="800">
 </center>
 </li>
-<li><p>File I/O</p>
+<li><p>File I&#x2F;O</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//program for file writing --phonebook</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cs50.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
@@ -410,6 +409,7 @@ string s <span class="token operator">=</span> <span class="token string">"CS50!
    <span class="token function">fprintf</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> <span class="token string">"%s,%s\n,name,number"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token function">fclose</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//program for file copy</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdint.h></span></span>
@@ -429,8 +429,7 @@ string s <span class="token operator">=</span> <span class="token string">"CS50!
     
     <span class="token function">fclose</span><span class="token punctuation">(</span>dst<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">fclose</span><span class="token punctuation">(</span>src<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <p>&nbsp;</p>
 <h3><span id="lecture-5-data-structures"><strong>Lecture 5 Data Structures</strong></span></h3><ul>
@@ -464,21 +463,16 @@ string s <span class="token operator">=</span> <span class="token string">"CS50!
     <span class="token function">free</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment">// reorientation</span>
     list <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
-</ul>
-<ul>
 <li><p><strong>linked list</strong></p>
 <center>
     <img src="/images/cs50/cs50_5.webp" width="800">
 </center>
 
 
-</li>
-</ul>
-  <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//template </span>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//template </span>
 <span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">node</span>
 <span class="token punctuation">&#123;</span>
     <span class="token keyword">int</span> number<span class="token punctuation">;</span>
@@ -494,7 +488,8 @@ n <span class="token operator">-></span> number <span class="token operator">=</
 n <span class="token operator">-></span> next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
 
 list <span class="token operator">=</span> n<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-  <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// enter a linked list and print</span>
+
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// enter a linked list and print</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
 
@@ -528,14 +523,15 @@ list <span class="token operator">=</span> n<span class="token punctuation">;</s
         ptr <span class="token operator">=</span> ptr<span class="token operator">-></span>next<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-  <center>
-      <img src="/images/cs50/cs50_6.webp" width="800">
-  </center>
+
+<center>
+    <img src="/images/cs50/cs50_6.webp" width="800">
+</center>
 
 
-<p>  adding nodes：    $ O(1) $</p>
-<p>  searching nodes：    $ O(n) $</p>
-  <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// enter a reverse linked list and print</span>
+<p>adding nodes：    $ O(1) $</p>
+<p>searching nodes：    $ O(n) $</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// enter a reverse linked list and print</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
 
@@ -582,8 +578,9 @@ list <span class="token operator">=</span> n<span class="token punctuation">;</s
         ptr <span class="token operator">=</span> ptr<span class="token operator">-></span>next<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  adding nodes：    $ O(n) $</p>
-  <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// enter a sequenced linked list </span>
+
+<p>adding nodes：    $ O(n) $</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// enter a sequenced linked list </span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
 
@@ -644,8 +641,9 @@ list <span class="token operator">=</span> n<span class="token punctuation">;</s
             ptr <span class="token operator">=</span> ptr<span class="token operator">-></span>next<span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>  adding nodes：    $ O(n) $</p>
-<ul>
+
+<p>adding nodes：    $ O(n) $</p>
+</li>
 <li><p><strong>trees</strong></p>
 <ul>
 <li><p>binary search trees</p>
@@ -654,18 +652,13 @@ list <span class="token operator">=</span> n<span class="token punctuation">;</s
     <span class="token keyword">struct</span> <span class="token class-name">node</span> <span class="token operator">*</span>left<span class="token punctuation">;</span>
     <span class="token keyword">struct</span> <span class="token class-name">node</span> <span class="token operator">*</span>right<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span> node<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <center>
     <img src="/images/cs50/cs50_7.webp" width="800">
-</center>
-
-
-
-</li>
+</center></li>
 </ul>
+<p>searching nodes：    $ O(logn) $</p>
 </li>
-</ul>
-<p>  searching nodes：    $ O(logn) $</p>
-<ul>
 <li><p><strong>dictionaries</strong></p>
 <ul>
 <li><p><strong>hashing</strong> : mapping objects into finite number of outputs</p>
@@ -679,21 +672,16 @@ list <span class="token operator">=</span> n<span class="token punctuation">;</s
 </li>
 <li><p>collision expectation</p>
 </li>
-<li><p>$ O(n/k) - O(n) $</p>
+<li><p>$ O(n&#x2F;k) - O(n) $</p>
 </li>
-</ul>
-</li>
-</ul>
-<ul>
 <li><p><strong>tries</strong>: a tree of arrays</p>
 <center>
     <img src="/images/cs50/cs50_9.webp" width="800">
-</center>
-
-
+</center></li>
+</ul>
+<p>$ O(k)- O(1)$</p>
 </li>
 </ul>
-<p>  $ O(k)- O(1)$</p>
 <p>&nbsp;</p>
 <h3><span id="lecture-6-python-artificial-intelligence"><strong>Lecture 6 Python, Artificial Intelligence</strong></span></h3><ul>
 <li><p>Python manages your memory automatically. It may take more memory than C.</p>
@@ -765,10 +753,10 @@ name <span class="token operator">=</span> <span class="token builtin">input</sp
         <span class="token keyword">break</span>
 <span class="token keyword">else</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Not found"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </li>
-</ul>
+<li><p>the Artificial Intelligence part is more <strong>“introductory”</strong> and basic for learning</p>
 <ul>
-<li>the Artificial Intelligence part is more <strong>“introductory”</strong> and basic for learning<ul>
 <li>prompt engineering</li>
 <li>minimax behavior</li>
 <li>machine learning</li>
@@ -835,6 +823,7 @@ sqlite&gt; SELECT * FROM shows WHERE id IN
 <li><p>how to join two tables that have related keys?</p>
 <pre class="line-numbers language-sqlite" data-language="sqlite"><code class="language-sqlite">-- syntax &#39;JOIN&#39;
 sqlite&gt; SELECT * FROM shows JOIN ratings ON shows.id &#x3D; ratings.show_id WHERE rating&gt;&#x3D; 6.0 LIMIT 10;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <center>
     <img src="/images/cs50/sql.webp" width="800">
 </center>
@@ -842,13 +831,13 @@ sqlite&gt; SELECT * FROM shows JOIN ratings ON shows.id &#x3D; ratings.show_id W
 <li><p>link different tables together:  <strong>one-to-many</strong> ，<strong>many-to-many</strong></p>
 </li>
 </ul>
-<p>​        just nested snytax.</p>
+<p>​		just nested snytax.</p>
 <ul>
 <li><strong>SQL injection attack</strong>     just use placeholders and sanitize customer’s inputs</li>
 </ul>
 <p>&nbsp;</p>
 <h3><span id="lecture-8-html-css-javascript"><strong>Lecture 8 HTML, CSS, JavaScript</strong></span></h3><ul>
-<li><p>routes &amp; packets；a pair of protocols: <strong>TCP/IP</strong></p>
+<li><p>routes &amp; packets；a pair of protocols: <strong>TCP&#x2F;IP</strong></p>
 <p><strong>IPv4:</strong> #.#.#.# (0~255) 32 bits </p>
 <p><strong>TCP:</strong> use sequence numbers to help servers multiplex, port numbers (80: HTTP 443: HTTPS)</p>
 </li>
@@ -860,7 +849,7 @@ sqlite&gt; SELECT * FROM shows JOIN ratings ON shows.id &#x3D; ratings.show_id W
 </li>
 <li><p><strong>HTTP</strong> (hypertext transmit protocol) <strong>HTTPS</strong> (hypertext transmit protocol secure) <strong>Internet</strong> protocol that allows a web browser to request and receive information from a web server</p>
 </li>
-<li><p><strong>HTML: </strong> (<strong>hypertext marker language</strong>) a really easy language that you can learn in 30 minutes. VSCode makes it even more convenient. but it can take a lot of effort to make good websites. </p>
+<li><p>**HTML: ** (<strong>hypertext marker language</strong>) a really easy language that you can learn in 30 minutes. VSCode makes it even more convenient. but it can take a lot of effort to make good websites. </p>
 <p>tags &amp; attributes: </p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  <span class="token comment">&lt;!--html: tag lang = "en": attributes --></span>
@@ -877,7 +866,7 @@ sqlite&gt; SELECT * FROM shows JOIN ratings ON shows.id &#x3D; ratings.show_id W
 <li><p>regular expressions: 正则表达式 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions</a></p>
 <p>you can change your local copy of html by using developer tools</p>
 </li>
-<li><p><strong>CSS: </strong> (<strong>Cascading Style Sheets</strong>)</p>
+<li><p>**CSS: ** (<strong>Cascading Style Sheets</strong>)</p>
 <ul>
 <li><p><strong>properties:</strong> example </p><p style="font-size: large"></p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
@@ -897,11 +886,8 @@ sqlite&gt; SELECT * FROM shows JOIN ratings ON shows.id &#x3D; ratings.show_id W
           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 </li>
-</ul>
-</li>
-</ul>
-<ul>
 <li><p><strong>classes:</strong> your own style or style from third libraries</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>   
@@ -933,13 +919,14 @@ sqlite&gt; SELECT * FROM shows JOIN ratings ON shows.id &#x3D; ratings.show_id W
               Copyright <span class="token entity" title="&#169;">&amp;#169;</span> John Harvard
           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
 </li>
 </ul>
-<p>​        样式可使用外链</p>
-<p>​        #+… : ID</p>
+<p>​		样式可使用外链</p>
+<p>​		#+… : ID</p>
 <ul>
-<li><strong>JavaScript </strong> </li>
+<li>**JavaScript **</li>
 </ul>
 <p>&nbsp;</p>
 <h3><span id="lecture-9-flask"><strong>Lecture 9 Flask</strong></span></h3><ul>
@@ -1022,6 +1009,7 @@ sqlite&gt; SELECT * FROM shows JOIN ratings ON shows.id &#x3D; ratings.show_id W
                      ///-._ _ _ _ _ _ _<span class="token punctuation">&#125;</span>^ - - - - ~                     ~-- ,.-~
                                                                         /.-~
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
         
       </div>

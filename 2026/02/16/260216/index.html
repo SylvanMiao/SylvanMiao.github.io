@@ -381,6 +381,7 @@ threadpool<span class="token operator">&lt;</span>T<span class="token operator">
 
     </div>
 </div>
+
 <h3><span id="线程同步封装类">线程同步封装类</span></h3><div class="fold collapsed">
     <div class="fold-title">
         threadsemaphore class
@@ -489,6 +490,9 @@ threadpool<span class="token operator">&lt;</span>T<span class="token operator">
 
     </div>
 </div>
+
+
+
 <h3><span id="http解析类">Http解析类</span></h3><div class="fold collapsed">
     <div class="fold-title">
         httpparse cpp
@@ -1116,6 +1120,7 @@ http_conn<span class="token double-colon punctuation">::</span>HTTP_CODE http_co
 
     </div>
 </div>
+
 <div class="fold collapsed">
     <div class="fold-title">
         headfile
@@ -1252,6 +1257,9 @@ http_conn<span class="token double-colon punctuation">::</span>HTTP_CODE http_co
 
     </div>
 </div>
+
+
+
 <h2><span id="启动">启动</span></h2><div class="fold collapsed">
     <div class="fold-title">
         main.cpp
@@ -1435,9 +1443,13 @@ http_conn<span class="token double-colon punctuation">::</span>HTTP_CODE http_co
 
     </div>
 </div>
+
+
+
+
+
 <h2><span id="压测">压测</span></h2><p>压测工具：webbench 1.5</p>
-<p>指令：<code>./webbench -c 5000 -t 10 http://localh
-ost:8080/index.html</code></p>
+<p>指令：<code>./webbench -c 5000 -t 10 http://localh ost:8080/index.html</code></p>
 <p>结果：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Webbench - Simple Web Benchmark <span class="token number">1.5</span>
 Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> Radim Kolar <span class="token number">1997</span>-2004, GPL Open Source Software.
@@ -1447,6 +1459,7 @@ Benchmarking: GET http://localhost:8080/index.html
 
 <span class="token assign-left variable">Speed</span><span class="token operator">=</span><span class="token number">2732598</span> pages/min, <span class="token number">7240987</span> bytes/sec.
 Requests: <span class="token number">455431</span> susceed, <span class="token number">2</span> failed.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>QPS 45,543，竟然还不错呢</p>
 <p>不过并发数量再高点就不行了</p>
 <p>经典永流传</p>

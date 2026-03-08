@@ -231,8 +231,7 @@
 </li>
 </ul>
 <h3><span id="离散余弦变换">离散余弦变换</span></h3><ul>
-<li><p><strong>目的</strong>：对梅尔滤波器组能量取对数后，进行<strong>离散余弦变换 (DCT)</strong>。这一步也称为倒谱分析。</p>
-<ul>
+<li><strong>目的</strong>：对梅尔滤波器组能量取对数后，进行<strong>离散余弦变换 (DCT)</strong>。这一步也称为倒谱分析。<ul>
 <li><p><strong>取对数</strong>：因为人耳对声音强度的感知也是对数的。同时，对数操作可以将卷积信号（声源激励和声道滤波）转化为可加的。</p>
 </li>
 <li><p><strong>DCT</strong>：对取对数后的滤波器组能量进行DCT，相当于对频谱进行“压缩”。DCT的结果中，低维（前几个）系数代表了包络信息（反映了声道形状，是语音内容的关键），而高维系数代表了细节信息（如激励源）。</p>
@@ -254,6 +253,7 @@
 <span class="token comment">//实际运行时，hoplength和framlength定义如下</span>
 <span class="token comment">// #define WIN_LENGTH 400 窗长400</span>
 <span class="token comment">// #define HOP_LENGTH 160 帧移160</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>&nbsp;</p>
 <p>手动FFT实现，经典的Cooley-Tukey迭代FFT算法，采用了位反转置换和蝶形运算：</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// Complex结构体定义</span>
@@ -316,6 +316,7 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>&nbsp;</p>
 <p>Mel功率谱计算，函数中的汉明窗与Mel滤波器组都是事先生成的。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 计算Mel功率谱</span>
@@ -392,6 +393,7 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>&nbsp;</p>
 <p>最终处理函数，这里是将上面流程输出的值每帧取均值后放入后续神经网络的input。</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"algo.h"</span></span>
@@ -449,6 +451,7 @@
 
     <span class="token keyword">return</span> out<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>其中compute_log_mel_mean函数如下定义：</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 计算对数梅尔特征并取均值</span>
 <span class="token keyword">float</span><span class="token operator">*</span> <span class="token function">compute_log_mel_mean</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token operator">*</span> mel_spec<span class="token punctuation">,</span> <span class="token keyword">int</span> n_mels<span class="token punctuation">,</span> <span class="token keyword">int</span> n_frames<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -472,6 +475,7 @@
 
     <span class="token keyword">return</span> mean_log_mel<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>其中SCALE_FACTOR 10.0 是比例因子，用于补偿与 Python 输出的差异。</p>
 <p>当时仿真效果还可以，就没有再考虑添加DCT转换为标准MFCC，主打能跑就行。</p>
 <link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>

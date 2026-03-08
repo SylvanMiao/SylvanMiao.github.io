@@ -174,7 +174,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cmmh5s9tr000900uqe3r50xmo">
+      <a class="article-gallery-img" rel="gallery_cmmh6c2xs000tccuqcn313ha7">
         <img src="/images/thermal_camera/thermal_camera2.webp" itemprop="image">
       </a>
     
@@ -250,6 +250,7 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>最近邻插值</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">nearestNeighborInterpolate</span><span class="token punctuation">(</span><span class="token keyword">float</span> <span class="token operator">*</span>src<span class="token punctuation">,</span> <span class="token keyword">float</span> <span class="token operator">*</span>dst<span class="token punctuation">,</span> <span class="token class-name">uint8_t</span> src_w<span class="token punctuation">,</span> <span class="token class-name">uint8_t</span> src_h<span class="token punctuation">,</span> <span class="token class-name">uint8_t</span> dst_w<span class="token punctuation">,</span> <span class="token class-name">uint8_t</span> dst_h<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">float</span> x_ratio <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>src_w <span class="token operator">/</span> dst_w<span class="token punctuation">;</span>
@@ -267,6 +268,7 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3><span id="边缘提取">边缘提取</span></h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// Sobel 算子卷积核</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> sobel_x<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
     <span class="token punctuation">&#123;</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -331,6 +333,7 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <center>
     <img src="/images/thermal_camera/display.gif" width="600">
 </center>
@@ -372,8 +375,10 @@
         x <span class="token operator">=</span> torch<span class="token punctuation">.</span>flatten<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
         x <span class="token operator">=</span> self<span class="token punctuation">.</span>classifier<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
         <span class="token keyword">return</span> x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>将模型以权重模式保存并导出到c头文件</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">torch<span class="token punctuation">.</span>save<span class="token punctuation">(</span>model<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'micro_temp_net_params.pth'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>之后将每个部分转C，这里大量使用ai工具，还是比较给力的</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// ReLU</span>
 <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">relu</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token operator">*</span> data<span class="token punctuation">,</span> <span class="token keyword">int</span> size<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -465,6 +470,9 @@
     <span class="token comment">// 8->5</span>
     <span class="token function">dense</span><span class="token punctuation">(</span>fc1_out<span class="token punctuation">,</span> net<span class="token operator">-></span>fc2_weight<span class="token punctuation">,</span> net<span class="token operator">-></span>fc2_bias<span class="token punctuation">,</span> output<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> NUM_CLASSES<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>主函数里按数据预处理，推理，分类的顺序写了逻辑，注意要和python中一样把数据归一化</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">CNN_PROC</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
 	<span class="token comment">//input</span>
@@ -499,6 +507,7 @@
         input<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>input<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> INPUT_MEAN<span class="token punctuation">)</span> <span class="token operator">/</span> INPUT_STD<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>不过最后分类效果有点烂，就3和5效果比较好，当作一次边缘设备部署ai的经历还是挺有趣的</p>
 <center>
     <img src="/images/thermal_camera/cnntest.gif" width="800">

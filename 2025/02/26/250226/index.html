@@ -20,12 +20,12 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="项目背景： DIY好玩捏  电路工作时有时需要检查元件发热情况，但用手触摸元件有一定的风险，因此需要一种无接触式的多点测温设备   于是开始了解到热成像这个测温方式，以下是软硬件方案 方案：硬件部分​        采用上下两块板子对插组合，为了减少复杂度，留了排母方便直插LCD与传感器模组。 BOARD1: MCU与外设 采用STM32F407作为主控，512KB  Flash，其实没特别注意选">
+  <meta name="description" content="项目背景： DIY好玩捏  电路工作时有时需要检查元件发热情况，但用手触摸元件有一定的风险，因此需要一种无接触式的多点测温设备   于是开始了解到热成像这个测温方式，以下是软硬件方案 方案：硬件部分​		采用上下两块板子对插组合，为了减少复杂度，留了排母方便直插LCD与传感器模组。 BOARD1: MCU与外设 采用STM32F407作为主控，512KB  Flash，其实没特别注意选型，只是手上">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于MLX90640的手持红外热成像仪">
 <meta property="og:url" content="https://miustannis.github.io/2025/02/26/250226/index.html">
 <meta property="og:site_name" content="Miao&#39;s Blog">
-<meta property="og:description" content="项目背景： DIY好玩捏  电路工作时有时需要检查元件发热情况，但用手触摸元件有一定的风险，因此需要一种无接触式的多点测温设备   于是开始了解到热成像这个测温方式，以下是软硬件方案 方案：硬件部分​        采用上下两块板子对插组合，为了减少复杂度，留了排母方便直插LCD与传感器模组。 BOARD1: MCU与外设 采用STM32F407作为主控，512KB  Flash，其实没特别注意选">
+<meta property="og:description" content="项目背景： DIY好玩捏  电路工作时有时需要检查元件发热情况，但用手触摸元件有一定的风险，因此需要一种无接触式的多点测温设备   于是开始了解到热成像这个测温方式，以下是软硬件方案 方案：硬件部分​		采用上下两块板子对插组合，为了减少复杂度，留了排母方便直插LCD与传感器模组。 BOARD1: MCU与外设 采用STM32F407作为主控，512KB  Flash，其实没特别注意选型，只是手上">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://miustannis.github.io/images/thermal_camera/thermal_camera1.webp">
 <meta property="article:published_time" content="2025-02-26T02:05:52.000Z">
@@ -172,7 +172,7 @@
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cmmh5s9tz001i00uqazhh6xbb">
+      <a class="article-gallery-img" rel="gallery_cmmh6c2xm0003ccuq83pg1bjt">
         <img src="/images/thermal_camera/thermal_camera1.webp" itemprop="image">
       </a>
     
@@ -224,7 +224,7 @@
 </li>
 </ol>
 <p>于是开始了解到热成像这个测温方式，以下是软硬件方案</p>
-<h2><span id="方案">方案：</span></h2><h3><span id="硬件部分">硬件部分</span></h3><p>​        采用上下两块板子对插组合，为了减少复杂度，留了排母方便直插LCD与传感器模组。</p>
+<h2><span id="方案">方案：</span></h2><h3><span id="硬件部分">硬件部分</span></h3><p>​		采用上下两块板子对插组合，为了减少复杂度，留了排母方便直插LCD与传感器模组。</p>
 <h4><span id="board1-mcu与外设">BOARD1: MCU与外设</span></h4><ul>
 <li>采用STM32F407作为主控，512KB  Flash，其实没特别注意选型，只是手上有这个开发板，要压缩成本的话用其他型号也可以</li>
 <li>红外传感模组为MLX90640 BAA，这个价格比较贵，比其他元件加起来都贵</li>
@@ -289,6 +289,7 @@
   <span class="token keyword">return</span> <span class="token function">BSP_LCD_GetColor565</span><span class="token punctuation">(</span>red<span class="token punctuation">,</span> green<span class="token punctuation">,</span> blue<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>该传感器成图32x24像素，而使用的LCD是128x128的，于是我用4个像素作为一个大像素来填充，并增加了一个图例和一个最大最小值来提供量化，并填充一下屏幕留白</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">drawPicture</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">uint8_t</span> cell_size <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span> <span class="token comment">// 格子大小 4x4</span>
@@ -306,6 +307,7 @@
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">drawLegend</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">uint8_t</span> legend_height <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>               <span class="token comment">// 图例高度（像素）</span>
     <span class="token class-name">uint8_t</span> legend_y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>                     <span class="token comment">// 图例顶部位置（y=0）</span>
@@ -330,6 +332,7 @@
     <span class="token function">sprintf</span><span class="token punctuation">(</span>tempBuffer<span class="token punctuation">,</span> <span class="token string">"%2.1f>       "</span><span class="token punctuation">,</span> maxTemp<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">ST7735_WriteString</span><span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">,</span> <span class="token number">115</span><span class="token punctuation">,</span> tempBuffer<span class="token punctuation">,</span> Font_7x10<span class="token punctuation">,</span> ST7735_WHITE<span class="token punctuation">,</span> ST7735_BLACK<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>最后在主循环里轮询就可以了，屏幕刷新率一般，眨眼补帧。</p>
 <p>整体软件部分比较清晰，本来想加一些按键交互，修改颜色范围，存储图片到外部flash之类的功能，然后懒了。</p>
 <p>后续学了操作系统和LVGL库之后再搞点好玩的吧，感觉大部分DIY应用裸机完全够了…</p>
@@ -348,7 +351,7 @@
 </center>
 
 
-<p>​    配置的IIC通信引脚占用了SWD下载引脚<em>（STM32默认的PA13 &amp;PA14）</em>，引脚输入输出模式不适配，显然后续无法下载，遂改之，问题解决。（图示仅供参考）</p>
+<p>​	配置的IIC通信引脚占用了SWD下载引脚*（STM32默认的PA13 &amp;PA14）*，引脚输入输出模式不适配，显然后续无法下载，遂改之，问题解决。（图示仅供参考）</p>
 <h3><span id="problem2hardfault中断触发"><strong>problem2：HardFault中断触发</strong></span></h3><p>栈空间不足，多分配点就ok</p>
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
     <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114448530415517&bvid=BV1GiVwzCEJM&cid=29784345814&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>

@@ -20,12 +20,12 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="什么是字符串匹配 暴力解法 KMP算法 具体实现 补充：   &amp;nbsp; KMP（Knuth-Morris-Pratt）算法是一种高效的字符串匹配算法，用于在一个主串中查找一个模式串的位置。它通过预处理模式串，避免了在匹配失败时重复比较已经匹配的部分，从而提高了匹配效率。 该算法在1977年被提出，取三位贡献者的姓名首字母组成算法名称。 什么是字符串匹配字符串匹配问题是计算机科学中的一个经典">
+  <meta name="description" content="什么是字符串匹配 暴力解法 KMP算法 具体实现 补充：    &amp;nbsp; KMP（Knuth-Morris-Pratt）算法是一种高效的字符串匹配算法，用于在一个主串中查找一个模式串的位置。它通过预处理模式串，避免了在匹配失败时重复比较已经匹配的部分，从而提高了匹配效率。 该算法在1977年被提出，取三位贡献者的姓名首字母组成算法名称。 什么是字符串匹配字符串匹配问题是计算机科学中的一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KMP算法 Study Log">
 <meta property="og:url" content="https://miustannis.github.io/2025/08/10/250810/index.html">
 <meta property="og:site_name" content="Miao&#39;s Blog">
-<meta property="og:description" content="什么是字符串匹配 暴力解法 KMP算法 具体实现 补充：   &amp;nbsp; KMP（Knuth-Morris-Pratt）算法是一种高效的字符串匹配算法，用于在一个主串中查找一个模式串的位置。它通过预处理模式串，避免了在匹配失败时重复比较已经匹配的部分，从而提高了匹配效率。 该算法在1977年被提出，取三位贡献者的姓名首字母组成算法名称。 什么是字符串匹配字符串匹配问题是计算机科学中的一个经典">
+<meta property="og:description" content="什么是字符串匹配 暴力解法 KMP算法 具体实现 补充：    &amp;nbsp; KMP（Knuth-Morris-Pratt）算法是一种高效的字符串匹配算法，用于在一个主串中查找一个模式串的位置。它通过预处理模式串，避免了在匹配失败时重复比较已经匹配的部分，从而提高了匹配效率。 该算法在1977年被提出，取三位贡献者的姓名首字母组成算法名称。 什么是字符串匹配字符串匹配问题是计算机科学中的一个">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://miustannis.github.io/images/KMP/prefix.webp">
 <meta property="og:image" content="https://miustannis.github.io/images/KMP/prove1.webp">
@@ -209,14 +209,16 @@
       <div class="e-content article-entry" itemprop="articleBody">
         
           <!-- toc -->
+
 <ul>
-<li><a href="#什么是字符串匹配"><strong>什么是字符串匹配</strong></a></li>
-<li><a href="#暴力解法"><strong>暴力解法</strong></a></li>
-<li><a href="#kmp算法"><strong>KMP算法</strong></a></li>
-<li><a href="#具体实现"><strong>具体实现</strong></a></li>
-<li><a href="#补充"><strong>补充：</strong></a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D"><strong>什么是字符串匹配</strong></a></li>
+<li><a href="#%E6%9A%B4%E5%8A%9B%E8%A7%A3%E6%B3%95"><strong>暴力解法</strong></a></li>
+<li><a href="#kmp%E7%AE%97%E6%B3%95"><strong>KMP算法</strong></a></li>
+<li><a href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><strong>具体实现</strong></a></li>
+<li><a href="#%E8%A1%A5%E5%85%85"><strong>补充：</strong></a></li>
 </ul>
 <!-- tocstop -->
+
 <p>&nbsp;</p>
 <p>KMP（Knuth-Morris-Pratt）算法是一种高效的字符串匹配算法，用于在一个主串中查找一个模式串的位置。它通过预处理模式串，避免了在匹配失败时重复比较已经匹配的部分，从而提高了匹配效率。</p>
 <p>该算法在1977年被提出，取三位贡献者的姓名首字母组成算法名称。</p>
@@ -254,6 +256,7 @@
         prefix<span class="token punctuation">[</span>bend<span class="token punctuation">]</span> <span class="token operator">=</span> fend<span class="token punctuation">;</span>
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>这其中有一些类似递归的思想，当我们手动实现前缀表时，当遇到前缀最后一个字符与后缀字符不匹配的情况时，我们只需要去找他<strong>前一位的前缀表的值所指引的位置</strong>，从那个位置再次开始对比。</p>
 <p>道理和字符串匹配中的应用是一样的，因为前一位存放的是在当前字符之前的子串最大相等前后缀的长度，索引之后代表你可以跳过对比几个前后缀都有的字符，提高效率。</p>
 <p>在具体字符串匹配问题中，运用也是一个道理：</p>
@@ -272,6 +275,7 @@
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>&nbsp;</p>
 <h3><span id="补充"><strong>补充：</strong></span></h3><p>由这个经典问题可推出：一个字符串是否由某个子串重复构成问题的解法。</p>
 <p>结论是，<strong>如果一个字符串在去掉其最长相等前后缀的长度后，剩余的子串长度能被原始长度整除，那么原始字符串就能被这个剩余的子串重复表示。</strong></p>

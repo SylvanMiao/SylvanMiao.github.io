@@ -278,7 +278,7 @@ void interpolateTemperature(float *src, float *dst, uint8_t src_w, uint8_t src_h
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.6k 词 
+            1.7k 词 
           </div>
         </div>
         
@@ -291,6 +291,7 @@ void interpolateTemperature(float *src, float *dst, uint8_t src_w, uint8_t src_h
             
               目录：
 
+
 Step 1 : 安装MathJax引擎并更换渲染引擎：
 Step 2 : 更新MathJax的cdn链接
 Step 3 : 更改部分转义规则
@@ -298,14 +299,15 @@ Step 4 (可选) : 主题未预配置下使用Hexo-filter-mathjax
 测试
 
 
+
 在写一些内容时，会遇到需要添加数学公式的地方，Hexo部分主题不支持公式的渲染，比如我正在使用的vivia主题，在查阅一些资料之后，我使用MathJax引擎实现了vivia主题下的数学公式渲染。
 MathJax简介：https://www.osgeo.cn/mathjax/basic/mathjax.html 
 该引擎是一款可在所有现代浏览器中工作的开源js显示引擎，辅助页面作者编写含有数学公式的文档
-Step 1 : 安装MathJax引擎并更换渲染引擎：​              操作包括卸载Hexo自带的Hexo-math，卸载默认的对MathJax不友好的marked引擎
+Step 1 : 安装MathJax引擎并更换渲染引擎：​			  操作包括卸载Hexo自带的Hexo-math，卸载默认的对MathJax不友好的marked引擎
 npm uninstall hexo-math --save
 npm install hexo-renderer-mathjax --save
 
-npm ...
+npm uninsta...
             
           </div>
         
@@ -375,6 +377,7 @@ npm ...
             
               目录：
 
+
 Lecture 0 Scratch
 Lecture 1 C
 Lecture 2 Arrays
@@ -388,8 +391,9 @@ Lecture 9 Flask
 Lecture 10 Cybersecurity
 
 
+
 Lecture 0 ScratchLecture 1 CLecture 2 ArraysLecture 3 Algorithms
-Time Complexity is an important metric used to measure the relationship between the running time of an algorithm and the size of the input. It describes how the execution time of an alg...
+Time Complexity is an important metric used to measure the relationship between the running time of an algorithm and the size of the input. It describes how the execution time of an a...
             
           </div>
         
@@ -466,7 +470,7 @@ DIY好玩捏
 
 
 于是开始了解到热成像这个测温方式，以下是软硬件方案
-方案：硬件部分​        采用上下两块板子对插组合，为了减少复杂度，留了排母方便直插LCD与传感器模组。
+方案：硬件部分​		采用上下两块板子对插组合，为了减少复杂度，留了排母方便直插LCD与传感器模组。
 BOARD1: MCU与外设
 采用STM32F407作为主控，512KB  Flash，其实没特别注意选型，只是手上有这个开发板，要压缩成本的话用其他型号也可以
 红外传感模组为MLX90640 BAA，这个价格比较贵，比其他元件加起来都贵
@@ -493,7 +497,7 @@ BOARD2: POWER
 
 
 
-立创打样PCB，自己贴片，PCB板框...
+立创打样PCB，自己贴片，PCB板框留了一些M3...
             
           </div>
         
@@ -730,13 +734,13 @@ BOARD2: POWER
         
           <div class="truncate-text">
             
-              UART（Universal Asynchronous Receiver/Transmitter）是一种串行通信协议，在嵌入式系统和微控制器间数据传输中发挥着核心作用。UART协议通过异步方式传输数据，不依赖于共享时钟信号，简化了通信线路的需求。每次传输包括起始位、数据位、可选的奇偶校验位以及停止位，这种结构支持从简单的传感器到复杂的处理器之间的可靠数据交换。
+              UART（Universal Asynchronous Receiver&#x2F;Transmitter）是一种串行通信协议，在嵌入式系统和微控制器间数据传输中发挥着核心作用。UART协议通过异步方式传输数据，不依赖于共享时钟信号，简化了通信线路的需求。每次传输包括起始位、数据位、可选的奇偶校验位以及停止位，这种结构支持从简单的传感器到复杂的处理器之间的可靠数据交换。
 其重要性还体现在其广泛的兼容性和低成本实现上。它可以通过简单的两线（TX和RX）接口实现全双工通信，极大地降低了系统的硬件复杂性。此外，UART通信协议可以适应不同的波特率设置，使其能够灵活地调整以匹配特定应用的速度要求。在许多工业和消费电子产品中，UART仍然是实现可靠串行通信的首选技术，尤其在资源受限的环境中显示出其高效和经济的优势。（以上均为GPT生成）
 在进行传感器测试时，常用到UART，这里mark一下自己常用的HAL库函数封装，免得后续一直翻之前的程序
 函数需要用到的全局变量如下：
 char send[20] = &#123;0&#125;; //传输用字符数组，储存字符串
 
-uint8_t rx_buffer...
+uint8_t rx_b...
             
           </div>
         
@@ -816,7 +820,8 @@ void ST7735_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint
     ST7735_WriteData((uint8_t*)data, sizeof(uint16_t)*w*h);
     ST7735_Unselect();
 &#125;
-输入数据要求16位rgb565格式图片，与Img2LCD取...
+
+输入数据要求16位rgb565格式图片，与Img2LCD...
             
           </div>
         
