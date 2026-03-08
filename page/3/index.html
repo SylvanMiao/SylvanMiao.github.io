@@ -127,14 +127,14 @@
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/Projects-Builds/">
-                Projects & Builds
-                <div class="category-count">10</div>
-            </a>
-        
             <a class="category-link" href="/categories/Learning-Record/">
                 Learning Record
                 <div class="category-count">8</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Projects-Builds/">
+                Projects & Builds
+                <div class="category-count">10</div>
             </a>
         </div>
     </div>
@@ -160,7 +160,7 @@
    
 
 
-<article id="post-220321" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-250306" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -171,7 +171,7 @@
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2022/03/21/220321/">Hexo博客插入图片</a>
+        <a class="p-name article-title" href="/2025/03/06/250306/">Harvard CS50 Study Log</a>
       </h1>
     
   
@@ -179,7 +179,95 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2022-03-21T01:32:46.000Z" itemprop="datePublished">2022-03-21</time>
+  <time class="dt-published" datetime="2025-03-06T12:39:18.000Z" itemprop="datePublished">2025-03-06</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Learning-Record/">Learning Record</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            14k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS/" rel="tag">CS</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              目录：
+
+
+Lecture 0 Scratch
+Lecture 1 C
+Lecture 2 Arrays
+Lecture 3 Algorithms
+Lecture 4 Memory
+Lecture 5 Data Structures
+Lecture 6 Python, Artificial Intelligence
+Lecture 7 SQL
+Lecture 8 HTML, CSS, JavaScript
+Lecture 9 Flask
+Lecture 10 Cybersecurity
+
+
+
+Lecture 0 ScratchLecture 1 CLecture 2 ArraysLecture 3 Algorithms
+Time Complexity is an important metric used to measure the relationship between the running time of an algorithm and the size of the input. It describes how the execution time of an a...
+            
+          </div>
+        
+      </div>
+         
+    </div>
+    
+     
+    <a class="right-panel  with-pic  "
+       style="background-image: url(/images/cs50/CS50_pic.webp)" 
+      href="/2025/03/06/250306/" 
+    >
+       
+      <div class="overlay">
+        <i class="fa-solid fa-angle-right with-pic"></i>
+      </div>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+   
+
+
+<article id="post-250226" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/02/26/250226/">基于MLX90640的手持红外热成像仪</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-02-26T02:05:52.000Z" itemprop="datePublished">2025-02-26</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
@@ -190,40 +278,155 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.1k 词 
+            3.1k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
             
-              目录：
+              项目背景：
+DIY好玩捏
+
+电路工作时有时需要检查元件发热情况，但用手触摸元件有一定的风险，因此需要一种无接触式的多点测温设备
 
 
-插入图片
-更改相对位置
+于是开始了解到热成像这个测温方式，以下是软硬件方案
+方案：硬件部分​		采用上下两块板子对插组合，为了减少复杂度，留了排母方便直插LCD与传感器模组。
+BOARD1: MCU与外设
+采用STM32F407作为主控，512KB  Flash，其实没特别注意选型，只是手上有这个开发板，要压缩成本的话用其他型号也可以
+红外传感模组为MLX90640 BAA，这个价格比较贵，比其他元件加起来都贵
+屏幕模组为1.44寸TFT-LCD，也是现成的，买了俩还剩一个，下次做别的东西的时候给用了吧
+留了串口测试点和烧录测试点
+
+
+    
 
 
 
-插入图片之前打算在文章中插入图片，配置的过程中遇到了一些问题。
-想在博客中引用外站图片问题不大，但Hexo默认插入图片只有这一个方法，对有本地化需求的人群来说不够方便，此时可以安装一个满足本地图片引用的插件npm install https://github.com/CodeFalling/hexo-asset-image –save
-修改_config.yml文件，将post_asset_folder:值改为true。
-之后在新建一个博客的同时会生成同名文件夹，将需插入的图片放入该文件夹即可。文章中的具体引用代码为以下格式：(后来发现在source文件夹里新建一个名为images的文件夹存放图片也行)
-![](1/image.jpg)
-更改相对位置但这种方法在PC端有一个默认的问题就是图片插入后会自动左对齐，想要实现居中对齐，可以在markdown引用代码外部添加center元素，或者直接添加html元素，如下所示：
-&lt;center>
+BOARD2: POWER
+3.7V锂电池供电，可通过USB接口经过LGS4084H电源管理芯片给锂电池充电
+经过一个LDO稳到3.3V给MCU整体供电，VDDA和VCC用磁珠滤波隔离了一下
 
-![...](xxx)
 
-&lt;/center>
+    
 
-&lt;!--or -->
 
-&lt;d...
+
+电源板后续涉及锂电池供电DIY的倒是可以继续沿用
+
+    
+
+
+
+立创打样PCB，自己贴片，PCB板框留了一些M3...
+            
+          </div>
+        
+      </div>
+         
+    </div>
+    
+     
+    <a class="right-panel  with-pic  "
+       style="background-image: url(/images/thermal_camera/thermal_camera1.webp)" 
+      href="/2025/02/26/250226/" 
+    >
+       
+      <div class="overlay">
+        <i class="fa-solid fa-angle-right with-pic"></i>
+      </div>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+   
+
+
+<article id="post-250213" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/02/13/250213/">Xiaomi路由器BE3600快速救砖</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-02-13T10:25:24.000Z" itemprop="datePublished">2025-02-13</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Projects-Builds/">Projects & Builds</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            307 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            
+              家里的路由器变砖了（具体原因不清楚）
+指示灯由蓝色常亮变成橙色常亮，对于家用路由器这种消费电子产品，一般重启一下能解决90%的故障
+但心血来潮想试一下给它刷个机
+型号是这个：
+
+    
+
+
+
+刷机需要一根网线，PC，以及变砖的路由器
+步骤如下：
+
+在网址MiWiFi中找到刷机软件与对应型号的ROM固件
+关闭PC的防火墙，将网线连接至路由器的LAN口，本型号WAN与LAN口二合一了,随便找个口插上就行
+打开刷机软件并载入对应的固件
+
+
+    
+
+
+
+
+用工具按住路由器的reset键后通电源，这一步非常像之前给单片机内部flash进行ISP下载程序的步骤，因此感觉很熟悉
+待指示灯闪烁后松开reset键，固件开始下载
+
+
+    
+
+
+
+
+路由器变为蓝灯闪烁，此时已经刷机完成，当新路由器用就行
+
+
             
           </div>
         
@@ -234,7 +437,7 @@
      
     <a class="right-panel  non-pic  "
       
-      href="/2022/03/21/220321/" 
+      href="/2025/02/13/250213/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -250,7 +453,7 @@
    
 
 
-<article id="post-220314" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-241121" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -261,7 +464,7 @@
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2022/03/14/220314/">Hexo博客启用测试</a>
+        <a class="p-name article-title" href="/2024/11/21/241121/">STM32配置笔记</a>
       </h1>
     
   
@@ -269,33 +472,101 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2022-03-14T07:08:39.000Z" itemprop="datePublished">2022-03-14</time>
+  <time class="dt-published" datetime="2024-11-21T10:45:34.000Z" itemprop="datePublished">2024-11-21</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/Projects-Builds/">Projects & Builds</a>
+  <a class="meta-cate-link" href="/categories/Learning-Record/">Learning Record</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            11 词 
+            56 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p>大二学习STM32G4系列的笔记</p>
+        
+      </div>
+         
+    </div>
+    
+     
+    <a class="right-panel  with-pic  "
+       style="background-image: url(/images/embeded_sys/notes.webp)" 
+      href="/2024/11/21/241121/" 
+    >
+       
+      <div class="overlay">
+        <i class="fa-solid fa-angle-right with-pic"></i>
+      </div>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+
+
+   
+
+
+<article id="post-241020" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/10/20/241020/">UART收发处理函数</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-10-20T02:51:00.000Z" itemprop="datePublished">2024-10-20</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Learning-Record/">Learning Record</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.8k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
             
-              test
-测试
-試験
-テスト
+              UART（Universal Asynchronous Receiver&#x2F;Transmitter）是一种串行通信协议，在嵌入式系统和微控制器间数据传输中发挥着核心作用。UART协议通过异步方式传输数据，不依赖于共享时钟信号，简化了通信线路的需求。每次传输包括起始位、数据位、可选的奇偶校验位以及停止位，这种结构支持从简单的传感器到复杂的处理器之间的可靠数据交换。
+其重要性还体现在其广泛的兼容性和低成本实现上。它可以通过简单的两线（TX和RX）接口实现全双工通信，极大地降低了系统的硬件复杂性。此外，UART通信协议可以适应不同的波特率设置，使其能够灵活地调整以匹配特定应用的速度要求。在许多工业和消费电子产品中，UART仍然是实现可靠串行通信的首选技术，尤其在资源受限的环境中显示出其高效和经济的优势。（以上均为GPT生成）
+在进行传感器测试时，常用到UART，这里mark一下自己常用的HAL库函数封装，免得后续一直翻之前的程序
+函数需要用到的全局变量如下：
+char send[20] = &#123;0&#125;; //传输用字符数组，储存字符串
 
+uint8_t rx_b...
             
           </div>
         
@@ -306,7 +577,7 @@
      
     <a class="right-panel  non-pic  "
       
-      href="/2022/03/14/220314/" 
+      href="/2024/10/20/241020/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -326,9 +597,9 @@
       <i class="fa-solid fa-angle-left"></i>
     </a>
     <div id="num-bar">
-      <a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>  
+      <a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a>  
     </div>
-    <a id="next-btn" class="page-nav-btn disabled" href="/">
+    <a id="next-btn" class="page-nav-btn " href="/page/4/">
       <i class="fa-solid fa-angle-right"></i>
     </a>
   </nav>
@@ -420,22 +691,5 @@
 
   </div>
   <script src="/js/light-dark-switch.js"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
 </body>
 </html>
