@@ -208,9 +208,11 @@
     
 
 
+
 浏览器访问：
 
     
+
 
 
 系统流程主线程用epoll这种多路复用机制监听客户端连接，当有read或者write事件发出请求时，将请求加入到线程池，线程池中的一个线程争抢到锁，开始执行任务，任务包括解析请求与生成响应，包括对信号的序列化与反序列化，最终发布的静态资源为js页面，这里简单让ai写了一个电子木鱼的效果并进行一些润色，系统适配Linux。
@@ -232,7 +234,7 @@
 using namespace std;
 
 // 线程池类
-template&lt...
+template&...
             
           </div>
         
@@ -1056,22 +1058,5 @@ Butterworth低通滤波器
 
   </div>
   <script src="/js/light-dark-switch.js"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
 </body>
 </html>
