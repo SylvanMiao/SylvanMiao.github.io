@@ -23,18 +23,18 @@
   <meta name="description" content="回顾一下之前做的轻量级高并发网络服务器项目 项目部署在VMware的乌班图系统上，运行效果如下： 终端启动：          浏览器访问：          系统流程主线程用epoll这种多路复用机制监听客户端连接，当有read或者write事件发出请求时，将请求加入到线程池，线程池中的一个线程争抢到锁，开始执行任务，任务包括解析请求与生成响应，包括对信号的序列化与反序列化，最终发布的静态资源为">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回顾经典项目Webserver">
-<meta property="og:url" content="https://miustannis.github.io/2026/02/16/260216/index.html">
+<meta property="og:url" content="https://sylvanmiao.github.io/2026/02/16/260216/index.html">
 <meta property="og:site_name" content="Miao&#39;s Blog">
 <meta property="og:description" content="回顾一下之前做的轻量级高并发网络服务器项目 项目部署在VMware的乌班图系统上，运行效果如下： 终端启动：          浏览器访问：          系统流程主线程用epoll这种多路复用机制监听客户端连接，当有read或者write事件发出请求时，将请求加入到线程池，线程池中的一个线程争抢到锁，开始执行任务，任务包括解析请求与生成响应，包括对信号的序列化与反序列化，最终发布的静态资源为">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://miustannis.github.io/images/webserver/terminal.webp">
-<meta property="og:image" content="https://miustannis.github.io/images/webserver/page.webp">
+<meta property="og:image" content="https://sylvanmiao.github.io/images/webserver/terminal.webp">
+<meta property="og:image" content="https://sylvanmiao.github.io/images/webserver/page.webp">
 <meta property="article:published_time" content="2026-02-16T04:22:29.000Z">
 <meta property="article:modified_time" content="2026-03-08T02:52:00.644Z">
 <meta property="article:author" content="miao">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://miustannis.github.io/images/webserver/terminal.webp">
+<meta name="twitter:image" content="https://sylvanmiao.github.io/images/webserver/terminal.webp">
   
     <link rel="alternate" href="/atom.xml" title="Miao's Blog" type="application/atom+xml">
   
@@ -118,7 +118,7 @@
       <div class="subtitle">Hope you find something useful! </div>
       <div class="link-list">
         
-          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/miustannis" title="Github"><i class="fa-brands fa-github"></i></a>
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/SylvanMiao" title="Github"><i class="fa-brands fa-github"></i></a>
          
       </div>  
     </div>
@@ -1628,22 +1628,5 @@ Requests: <span class="token number">455431</span> susceed, <span class="token n
 
   </div>
   <script src="/js/light-dark-switch.js"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
 </body>
 </html>

@@ -23,7 +23,7 @@
   <meta name="description" content="MFCC的核心思想是模仿人耳对声音的非线性感知特性（人耳对低频声音比高频声音更敏感），从而更好地表示语音特征。其流程可以概括为以下步骤： 分帧 目的：语音信号是非平稳信号，其特性是随时间变化的。但在一个非常短的时间段内，可以近似认为是平稳的。分帧就是将长信号切分成许多短片段来分析。 操作：使用一个固定长度的窗口以一定的帧移沿着信号滑动并截取数据。  加窗 目的：减少每一帧信号在其两端处的频谱泄漏，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MFCC音频特征提取流程demo">
-<meta property="og:url" content="https://miustannis.github.io/2025/07/10/250710/index.html">
+<meta property="og:url" content="https://sylvanmiao.github.io/2025/07/10/250710/index.html">
 <meta property="og:site_name" content="Miao&#39;s Blog">
 <meta property="og:description" content="MFCC的核心思想是模仿人耳对声音的非线性感知特性（人耳对低频声音比高频声音更敏感），从而更好地表示语音特征。其流程可以概括为以下步骤： 分帧 目的：语音信号是非平稳信号，其特性是随时间变化的。但在一个非常短的时间段内，可以近似认为是平稳的。分帧就是将长信号切分成许多短片段来分析。 操作：使用一个固定长度的窗口以一定的帧移沿着信号滑动并截取数据。  加窗 目的：减少每一帧信号在其两端处的频谱泄漏，">
 <meta property="og:locale" content="zh_CN">
@@ -115,7 +115,7 @@
       <div class="subtitle">Hope you find something useful! </div>
       <div class="link-list">
         
-          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/miustannis" title="Github"><i class="fa-brands fa-github"></i></a>
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/SylvanMiao" title="Github"><i class="fa-brands fa-github"></i></a>
          
       </div>  
     </div>
@@ -648,22 +648,5 @@
 
   </div>
   <script src="/js/light-dark-switch.js"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
 </body>
 </html>
