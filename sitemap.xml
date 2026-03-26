@@ -209,6 +209,13 @@
 
   
   <url>
+    <loc>https://sylvanmiao.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sylvanmiao.github.io/tags/Hexo/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -216,7 +223,14 @@
   </url>
   
   <url>
-    <loc>https://sylvanmiao.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
+    <loc>https://sylvanmiao.github.io/tags/Algorithm/</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sylvanmiao.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -237,20 +251,6 @@
   </url>
   
   <url>
-    <loc>https://sylvanmiao.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://sylvanmiao.github.io/tags/Algorithm/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://sylvanmiao.github.io/tags/C/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -260,14 +260,14 @@
 
   
   <url>
-    <loc>https://sylvanmiao.github.io/categories/Projects-Builds/</loc>
+    <loc>https://sylvanmiao.github.io/categories/Learning-Record/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sylvanmiao.github.io/categories/Learning-Record/</loc>
+    <loc>https://sylvanmiao.github.io/categories/Projects-Builds/</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
