@@ -63,7 +63,7 @@
 <meta property="og:image" content="https://sylvanmiao.github.io/images/dip/dip7_2.webp">
 <meta property="og:image" content="https://sylvanmiao.github.io/images/dip/dip7_3.webp">
 <meta property="article:published_time" content="2025-05-19T03:38:44.000Z">
-<meta property="article:modified_time" content="2026-02-20T10:43:38.081Z">
+<meta property="article:modified_time" content="2026-03-26T12:38:13.426Z">
 <meta property="article:author" content="miao">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="图像处理">
@@ -169,14 +169,14 @@
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/Learning-Record/">
-                Learning Record
-                <div class="category-count">8</div>
-            </a>
-        
             <a class="category-link" href="/categories/Projects-Builds/">
                 Projects & Builds
                 <div class="category-count">10</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Learning-Record/">
+                Learning Record
+                <div class="category-count">8</div>
             </a>
         </div>
     </div>
@@ -274,7 +274,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            28k 词 
+            27k 词 
           </div>
         </div>
         
@@ -1084,10 +1084,9 @@ S_{x} & 0 & 0 \\
 <h5><span id="二维离散傅里叶变换">二维离散傅里叶变换</span></h5><p>\begin{array}{l}<br>F(u, v)&#x3D;\frac{1}{M N} \sum_{x&#x3D;0}^{M-1} \sum_{y&#x3D;0}^{N-1} f(x, y) \mathrm{e}^{[-\mathrm{j} 2 \pi(u x &#x2F; M+v y &#x2F; N)]} \<br>f(x, y)&#x3D;\sum_{u&#x3D;0}^{M-1} \sum_{v&#x3D;0}^{N-1} F(u, v) \mathrm{e}^{[\mathrm{j} 2 \pi(u x &#x2F; M+v y &#x2F; N)]}<br>\end{array}</p>
 <p>M，N表示图像在x，y方向上的大小</p>
 <h5><span id="基本性质">基本性质</span></h5><ul>
-<li><p>**可分离性：**可以将二维DFT转换成一维计算，先做一个方向上的：</p>
+<li><p><strong>可分离性</strong>：可以将二维DFT转换成一维计算，先做一个方向上的：</p>
 <p>\begin{aligned}<br>F(u, v) &amp; &#x3D;\frac{1}{N^{2}} \sum_{x&#x3D;0}^{N-1} \mathrm{e}^{-\mathrm{j} 2 \pi u x &#x2F; N} \bullet \sum_{y&#x3D;0}^{N-1} f(x, y) \mathrm{e}^{-\mathrm{j} 2 \pi v y &#x2F; N} \<br>f(x, y) &amp; &#x3D;\sum_{u&#x3D;0}^{N-1} \mathrm{e}^{-\mathrm{j} 2 \pi u x &#x2F; N} \bullet \sum_{v&#x3D;0}^{N-1} F(u, v) \mathrm{e}^{-\mathrm{j} 2 \pi v y &#x2F; N}<br>\end{aligned}</p>
-<p>再做第二个方向上的：</p>
-<p>\begin{array}{l}<br>F(u, v)&#x3D;F_{x}\left{F_{y}[f(x, y)]\right}&#x3D;F_{y}\left{F_{x}[f(x, y)]\right} \<br>f(x, y)&#x3D;F_{u}^{-1}\left{F_{v}^{-1}[F(u, v)]\right}&#x3D;F_{v}^{-1}\left{F_{u}^{-1}[F(u, v)]\right} \<br>F(u, v)&#x3D;\frac{1}{N} \sum_{x&#x3D;0}^{N-1} F(x, v) \mathrm{e}^{-\mathrm{j} 2 \pi u x &#x2F; N} \<br>\text { 其中: } F(x, v)&#x3D;N\left[\frac{1}{N} \sum_{y&#x3D;0}^{N-1} f(x, y) \mathrm{e}^{-\mathrm{j} 2 \pi v x &#x2F; N}\right]<br>\end{array}</p>
+<p>再做第二个方向上的</p>
 </li>
 <li><p><strong>平移性</strong>——&gt;图像中心化</p>
 <p>\begin{aligned}<br>f(x, y) e^{j 2 \pi\left(\frac{u_{0} x}{M}+\frac{v_{0} y}{N}\right)} &amp; \Leftrightarrow F\left(u-u_{0}, v-v_{0}\right) \<br>f\left(x-x_{0}, y-y_{0}\right) &amp; \Leftrightarrow F(u, v) e^{-j 2 \pi\left(\frac{u x_{0}}{M}+\frac{v y_{0}}{N}\right)}<br>\end{aligned}</p>
@@ -1102,7 +1101,7 @@ S_{x} & 0 & 0 \\
 </center>
 
 </li>
-<li><p>**周期性：**DFT和他的逆变换是以M，N为周期的</p>
+<li><p><strong>周期性</strong>：DFT和他的逆变换是以M，N为周期的</p>
 </li>
 <li><p><strong>共轭对称性</strong></p>
 </li>
@@ -1110,13 +1109,13 @@ S_{x} & 0 & 0 \\
 </li>
 <li><p><strong>加法有分配性，乘法有比例性</strong></p>
 </li>
-<li><p>**平均值：**将$u &#x3D; v &#x3D; 0$代入二维DFT公式，可得原图像均值就是该DFT在$(0,0)$处的值</p>
+<li><p><strong>平均值</strong>：将$u &#x3D; v &#x3D; 0$代入二维DFT公式，可得原图像均值就是该DFT在$(0,0)$处的值</p>
 </li>
 </ul>
 <h5><span id="dft的问题">DFT的问题</span></h5><p>计算量大，收敛慢</p>
 <p>引入<strong>FFT</strong>：对于任何N &#x3D; 2m的DFT，通过计算两个N&#x2F;2的DFT，来计算N的DFT</p>
 <p>有按位倒序排列等方法</p>
-<p>**小结：**二维离散傅里叶变换在图像处理中是一个比较基本的数学工具，利用这个工具，可以对图像的频谱进行各种各样的处理，比如滤波、降噪、增强等。</p>
+<p><strong>小结</strong>：二维离散傅里叶变换在图像处理中是一个比较基本的数学工具，利用这个工具，可以对图像的频谱进行各种各样的处理，比如滤波、降噪、增强等。</p>
 <p>除离散傅里叶变换之外，还有沃尔什和哈达玛变换这两种重要的正交变换，他们将信号从时域或者空间域转换到一种由二进制函数(如矩形波)构成的频域，类似于傅里叶变换，但计算更加高效(只涉及加减运算，无需复数运算)</p>
 <p>&nbsp;</p>
 <h4><span id="频域图像增强">频域图像增强</span></h4><p>有了二维离散傅里叶变换的基础，下面可以考虑具体的应用了</p>
@@ -1209,9 +1208,9 @@ S_{x} & 0 & 0 \\
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<h3><span id="ch4-图像复原与恢复"><strong>Ch4 图像复原与恢复</strong></span></h3><h4><span id="图像复原的基本概念">图像复原的基本概念</span></h4><h5><span id="图像退化">图像退化</span></h5><p>**定义：**图像的质量下降叫做退化</p>
-<p>**形式：**模糊、失真、有噪声等</p>
-<p>**原因：**无论是由光学、光电或者电子方法获得的图像，均会有不同程度的退化。比如传感器噪声，物体与摄像设备之间的相对移动等</p>
+<h3><span id="ch4-图像复原与恢复"><strong>Ch4 图像复原与恢复</strong></span></h3><h4><span id="图像复原的基本概念">图像复原的基本概念</span></h4><h5><span id="图像退化">图像退化</span></h5><p><strong>定义</strong>：图像的质量下降叫做退化</p>
+<p><strong>形式</strong>：模糊、失真、有噪声等</p>
+<p><strong>原因</strong>：无论是由光学、光电或者电子方法获得的图像，均会有不同程度的退化。比如传感器噪声，物体与摄像设备之间的相对移动等</p>
 <p>在图像<strong>采集过程</strong>中产生的许多退化常称为模糊，在图像记录过程中产生的退化常称为噪声</p>
 <p>如果对退化的类型、机制和过程都十分清楚，就可以利用其反过程来复原图像</p>
 <h5><span id="图像复原">图像复原</span></h5><p>对降质了的图像恢复成原来的图像。具体方法：<font color="blue">针对引起图像退化的原因，以及降质过程的某先验知识，建立起退化模型，再针对降质过程采取相反的方向，恢复图像。</font>本质上是一种逆过程。</p>
@@ -1229,7 +1228,9 @@ S_{x} & 0 & 0 \\
 <li>H是线性的</li>
 <li>H是空间（或位移）不变的</li>
 </ol>
-<p>在这里先省略噪声项，可将一幅图像看作是由一系列冲激函数组成的，利用冲激函数的偶函数性质与抽样性质：$\int_{-\infty}^{+\infty} f(t) \delta\left(t-t_{0}\right) d t&#x3D;f\left(t_{0}\right)$，可推广到二维空间：$f(x, y)&#x3D;\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(\alpha, \beta) \delta(x-\alpha, y-\beta) \mathrm{d} \alpha \mathrm{<del>d} \beta$，则有$g(x, y)&#x3D;H \cdot \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(\alpha, \beta) \delta(x-\alpha, y-\beta) \mathrm{d} \alpha \mathrm{</del>d} \beta$</p>
+<p>在这里先省略噪声项，可将一幅图像看作是由一系列冲激函数组成的，利用冲激函数的偶函数性质与抽样性质：$\int_{-\infty}^{+\infty} f(t) \delta\left(t-t_{0}\right) d t&#x3D;f\left(t_{0}\right)$，可推广到二维空间：</p>
+<p>$f(x, y)&#x3D;\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(\alpha, \beta) \delta(x-\alpha, y-\beta) \mathrm{d} \alpha \mathrm{~d} \beta$，</p>
+<p>则有$g(x, y)&#x3D;H \cdot \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(\alpha, \beta) \delta(x-\alpha, y-\beta) \mathrm{d} \alpha \mathrm{~d} \beta$</p>
 <p>由模型H的两个假设性质可得：</p>
 <ol>
 <li><p>H是线性的：$g(x,y) &#x3D; \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}H f(\alpha, \beta) \delta(x-\alpha, y-\beta) \mathrm{d} \alpha \mathrm{~d} \beta$</p>
@@ -1254,7 +1255,7 @@ S_{x} & 0 & 0 \\
 </center>
 
 
-<p>**结论：**一个线性系统完全可以由它的点扩散函数PSF来表征。若系统的点扩散函数已知，则系统在(x,y)处的输出响应可以看成是不同坐标$(\alpha,\beta)$处输入函数$f(\alpha,\beta)$所产生的脉冲响应在$(x,y)$处的叠加。</p>
+<p><strong>结论</strong>：一个线性系统完全可以由它的点扩散函数PSF来表征。若系统的点扩散函数已知，则系统在(x,y)处的输出响应可以看成是不同坐标$(\alpha,\beta)$处输入函数$f(\alpha,\beta)$所产生的脉冲响应在$(x,y)$处的叠加。</p>
 <p><strong>恢复方法：</strong></p>
 <p>空间域中的卷积等于频域中的乘积，频域表示为</p>
 <center>
@@ -1594,8 +1595,8 @@ s_{i}=T_{i}\left(r_{1}, r_{2}, \ldots, r_{n}\right) \quad i=1,2, \ldots, n\\
 <p> r_{i}  和  S_{i}  是  f(x, y)  和  g(x, y)  在任何点处彩色分量的变量\<br> \left{T_{1}, T_{2}, \ldots T_{n}\right}  是一个对  r_{i}  操作产生  s_{i}  的变换或彩色映射函数集$</p>
 </center>
 
-<p>**补色：**在彩色环上，与一种色调直接相对立的另一种色调称为补色</p>
-<p>**色调校正：**实验性地调整图像亮度和对比度</p>
+<p><strong>补色</strong>：在彩色环上，与一种色调直接相对立的另一种色调称为补色</p>
+<p><strong>色调校正</strong>：实验性地调整图像亮度和对比度</p>
 <p><strong>彩色平衡：</strong></p>
 <p><strong>偏色：</strong></p>
 <p>采样过程中，由于设备、环境的原因会造成图象的三个颜色分量不同的变换关系，使图象中所有物体的颜色偏离了其原有的真实色彩，这种现象被称为偏色。</p>
@@ -1604,20 +1605,20 @@ s_{i}=T_{i}\left(r_{1}, r_{2}, \ldots, r_{n}\right) \quad i=1,2, \ldots, n\\
 <p>&nbsp;</p>
 <h4><span id="彩色图像平滑和尖锐化">彩色图像平滑和尖锐化</span></h4><p>同灰度图像，有空间域滤波与频率微分，只是输入通道换成了对应彩色空间的n个分量</p>
 <p>彩色空间分割：</p>
-<p>**HSI：**可用直方图分割</p>
-<p>**RGB：**可用不同像素的颜色向量与分割样本的颜色向量之间的欧氏距离为判据</p>
+<p><strong>HSI</strong>：可用直方图分割</p>
+<p><strong>RGB</strong>：可用不同像素的颜色向量与分割样本的颜色向量之间的欧氏距离为判据</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<h3><span id="ch6-形态学图像处理"><strong>Ch6 形态学图像处理</strong></span></h3><h4><span id="基础知识">基础知识</span></h4><p>**形态学：**是生物学中研究动物和植物结构的一个分支。</p>
-<p>**数学形态学（图像代数）：**以形态为基础对图像进行分析的数学工具。</p>
-<p>**形态学图像处理的应用：**可以简化图像数据，保持它们基本的形状特性，并除去不相干的结构。</p>
-<p>**思想：**用具有一定形态的结构元素，去度量和提取图像中的对应形状，以达到对图像分析和识别的目的</p>
-<p>**发展：**初期的数学形态学方法仅可以应用于二值图像，所以需要将灰度图像先进行二值化。后来灰度形态学得到发展，使得数学形态学方法不仅可以用于二值图像，也可以应用于各种灰度与彩色图像。</p>
+<h3><span id="ch6-形态学图像处理"><strong>Ch6 形态学图像处理</strong></span></h3><h4><span id="基础知识">基础知识</span></h4><p><strong>形态学</strong>：是生物学中研究动物和植物结构的一个分支。</p>
+<p><strong>数学形态学（图像代数）</strong>：以形态为基础对图像进行分析的数学工具。</p>
+<p><strong>形态学图像处理的应用</strong>：可以简化图像数据，保持它们基本的形状特性，并除去不相干的结构。</p>
+<p><strong>思想</strong>：用具有一定形态的结构元素，去度量和提取图像中的对应形状，以达到对图像分析和识别的目的</p>
+<p><strong>发展</strong>：初期的数学形态学方法仅可以应用于二值图像，所以需要将灰度图像先进行二值化。后来灰度形态学得到发展，使得数学形态学方法不仅可以用于二值图像，也可以应用于各种灰度与彩色图像。</p>
 <p>&nbsp;</p>
 <p>二值形态学中的运算对象是<strong>集合</strong>，但实际运算中当涉及两个集合时并不把他们看作是互相对等的，一般设A为图像集合，B为结构元素，数学形态学运算是用B对A进行操作。</p>
 <p>结构元素本身实际上也是一个图像集合。对每个结构元素，先要指定一个原点，它是结构元素参与形态学运算的参考点。注意原点可以包含在结构元素中，也可以不包含在结构元素中（即原点并不一定要属于结构元素），但两种情况下的运算结果常不相同 。</p>
-<p>**集合论中的基本概念：**并，交，补，差</p>
+<p><strong>集合论中的基本概念</strong>：并，交，补，差</p>
 <center>
     <img src="/images/dip/dip6_1.webp" width="500">
 </center>
@@ -1668,7 +1669,7 @@ s_{i}=T_{i}\left(r_{1}, r_{2}, \ldots, r_{n}\right) \quad i=1,2, \ldots, n\\
 
 
 <p>A为图像元素，B为结构元素，上述式子表明，B的反射进行平移后与A的交集不为空</p>
-<p>**反射的目的：**确保膨胀的空间对称性</p>
+<p><strong>反射的目的</strong>：确保膨胀的空间对称性</p>
 <p><font color="blue">算法实现过程：</font></p>
 <ul>
 <li><font color="blue">对B进行反射，反射后B的原点移动至集合A的某一点</font></li>
@@ -1686,8 +1687,7 @@ s_{i}=T_{i}\left(r_{1}, r_{2}, \ldots, r_{n}\right) \quad i=1,2, \ldots, n\\
 </center>
 
 
-
-<p>**应用：**将裂缝桥接起来</p>
+<p><strong>应用</strong>：将裂缝桥接起来</p>
 <p>&nbsp;</p>
 <h5><span id="腐蚀">腐蚀</span></h5><p>B对A的腐蚀是一个用z平移的B包含在A中所有的点z的集合，可以理解为，B完全包含在A中时，B的原点位置的集合</p>
 <p>定义：</p>
@@ -1708,10 +1708,9 @@ s_{i}=T_{i}\left(r_{1}, r_{2}, \ldots, r_{n}\right) \quad i=1,2, \ldots, n\\
 </center>
 
 
-
-<p>**应用：**在数学形态学运算中的作用是消除物体边界点，可以把小于结构元素的物体（毛刺、小突起）去除，因此选取不同大小的结构元素，就可以在原始图像中去除不同大小的物体，达到<font color="red">筛选</font>的目的</p>
+<p><strong>应用</strong>：在数学形态学运算中的作用是消除物体边界点，可以把小于结构元素的物体（毛刺、小突起）去除，因此选取不同大小的结构元素，就可以在原始图像中去除不同大小的物体，达到<font color="red">筛选</font>的目的</p>
 <p>&nbsp;</p>
-<h4><span id="开操作和闭操作">开操作和闭操作</span></h4><p>**开操作：**使图像的轮廓变得光滑，断开狭窄的连接和消除细的突出物</p>
+<h4><span id="开操作和闭操作">开操作和闭操作</span></h4><p><strong>开操作</strong>：使图像的轮廓变得光滑，断开狭窄的连接和消除细的突出物</p>
 <center>
     $A \circ B=(A \ominus B) \oplus B$
 </center>
@@ -1719,7 +1718,7 @@ s_{i}=T_{i}\left(r_{1}, r_{2}, \ldots, r_{n}\right) \quad i=1,2, \ldots, n\\
 
 <p>先用B对A腐蚀，然后用B对结果进行膨胀</p>
 <p>&nbsp;</p>
-<p>**闭操作：**同样使得图像的轮廓变得光滑，但与开操作相反，能消除狭窄的间断与长细的鸿沟，消除小的空洞，并填补轮廓线中的裂痕</p>
+<p><strong>闭操作</strong>：同样使得图像的轮廓变得光滑，但与开操作相反，能消除狭窄的间断与长细的鸿沟，消除小的空洞，并填补轮廓线中的裂痕</p>
 <center>
     $A \bullet B=(A \oplus B) \ominus B$
 </center>
@@ -1821,7 +1820,7 @@ s_{i}=T_{i}\left(r_{1}, r_{2}, \ldots, r_{n}\right) \quad i=1,2, \ldots, n\\
 <li><p>对于每一次开操作，计算像素值的和</p>
 </li>
 <li><p>表面区域是圆盘形结构元半径的函数</p>
-<p>***为什么不直接腐蚀：**单纯腐蚀会导致颗粒尺寸被低估，开操作通过结构元素与颗粒的匹配度筛选尺寸，结果更接近真实分布</p>
+<p>*<strong>为什么不直接腐蚀</strong>：单纯腐蚀会导致颗粒尺寸被低估，开操作通过结构元素与颗粒的匹配度筛选尺寸，结果更接近真实分布</p>
 </li>
 </ul>
 <h6><span id="纹理分割">纹理分割</span></h6><ul>
@@ -2045,14 +2044,14 @@ H_{1}=\left|\begin{array}{cc}
 <li>比较邻接区域的累积灰度直方图，根据灰度分布的相似性进行区域合并；</li>
 <li>设定终止准则，通过反复进行上一个步骤中的操作将各个区域依次合并直到满足终止准则</li>
 </ul>
-<h6><span id="基于区域形状">基于区域形状</span></h6><p>**方法1：**把图像分割成灰度固定的区域，设两相邻区域的周长为P1和P2，把两区域共同边界线两侧灰度差小于给定值的那部分设为L，如果有：（T1为预定的阈值）</p>
+<h6><span id="基于区域形状">基于区域形状</span></h6><p><strong>方法1</strong>：把图像分割成灰度固定的区域，设两相邻区域的周长为P1和P2，把两区域共同边界线两侧灰度差小于给定值的那部分设为L，如果有：（T1为预定的阈值）</p>
 <center>
     $\frac{L}{\min \left\{P_{1}, P_{2}\right\}}>T_{1}
     $
 </center>
 
 <p>则合并两区域</p>
-<p>**方法2：**把图像分割成灰度固定的区域，设两邻接区域的共同边界长度为B，把两区域共同边界线两侧灰度差小于给定值的那部分长度设为L，如果有：（T2为预定阈值）</p>
+<p><strong>方法2</strong>：把图像分割成灰度固定的区域，设两邻接区域的共同边界长度为B，把两区域共同边界线两侧灰度差小于给定值的那部分长度设为L，如果有：（T2为预定阈值）</p>
 <center>
     $\frac{L}{B}>T_{2}
     $
@@ -2198,22 +2197,5 @@ H_{1}=\left|\begin{array}{cc}
 
   </div>
   <script src="/js/light-dark-switch.js"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
 </body>
 </html>
