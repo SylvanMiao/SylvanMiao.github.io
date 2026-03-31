@@ -6,7 +6,7 @@
   <link href="https://sylvanmiao.github.io/atom.xml" rel="self"/>
   
   <link href="https://sylvanmiao.github.io/"/>
-  <updated>2026-03-08T02:52:00.644Z</updated>
+  <updated>2026-03-31T15:39:16.728Z</updated>
   <id>https://sylvanmiao.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络编程与应用</title>
+    <link href="https://sylvanmiao.github.io/2026/03/30/260330/"/>
+    <id>https://sylvanmiao.github.io/2026/03/30/260330/</id>
+    <published>2026-03-30T14:22:29.000Z</published>
+    <updated>2026-03-31T15:39:16.728Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h2&gt;&lt;span id=&quot;同步与异步模式简介&quot;&gt;同步与异步模式简介&lt;/span&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span id=&quot;同步&quot;&gt;同步&lt;/span&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;同步模式下，程序会等待某个操作完成后再继续执行后续代码&lt;/li&gt;
+&lt;li&gt;典型场景：阻塞式 socket </summary>
+      
+    
+    
+    
+    <category term="Learning Records" scheme="https://sylvanmiao.github.io/categories/Learning-Records/"/>
+    
+    
+    <category term="C++" scheme="https://sylvanmiao.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>回顾经典项目Webserver</title>
@@ -60,9 +84,9 @@
     <category term="Projects &amp; Builds" scheme="https://sylvanmiao.github.io/categories/Projects-Builds/"/>
     
     
-    <category term="C++" scheme="https://sylvanmiao.github.io/tags/C/"/>
-    
     <category term="CS" scheme="https://sylvanmiao.github.io/tags/CS/"/>
+    
+    <category term="C++" scheme="https://sylvanmiao.github.io/tags/C/"/>
     
   </entry>
   
@@ -116,33 +140,6 @@
     
     
     <category term="Algorithm" scheme="https://sylvanmiao.github.io/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用APP Inventor快速开发一款BLE安卓应用</title>
-    <link href="https://sylvanmiao.github.io/2025/07/18/250718/"/>
-    <id>https://sylvanmiao.github.io/2025/07/18/250718/</id>
-    <published>2025-07-18T03:38:44.000Z</published>
-    <updated>2026-02-20T13:02:29.299Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;出于科研项目的需求，我需要开发一个能个性化定制界面与功能的BLE手机上位机软件，在经过简单的调研后，主要有以下两种开发路径：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Android Studio&lt;/li&gt;
-&lt;li&gt;MIT APP Inventor&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;其中AS需要</summary>
-      
-    
-    
-    
-    <category term="Projects &amp; Builds" scheme="https://sylvanmiao.github.io/categories/Projects-Builds/"/>
-    
-    
-    <category term="Android" scheme="https://sylvanmiao.github.io/tags/Android/"/>
     
   </entry>
   
