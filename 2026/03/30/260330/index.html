@@ -28,7 +28,7 @@
 <meta property="og:description" content="同步与异步模式简介同步 同步模式下，程序会等待某个操作完成后再继续执行后续代码 典型场景：阻塞式 socket 通信，read&#x2F;write 操作会阻塞线程直到数据收发完成 优点：编程简单，逻辑清晰，易于理解和调试 缺点：效率低，无法充分利用多核资源，容易造成线程阻塞，难以支撑高并发  void session(socket_ptr sock)&amp;#123;   for (;;) &amp;#123">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-03-30T14:22:29.000Z">
-<meta property="article:modified_time" content="2026-04-01T15:59:03.522Z">
+<meta property="article:modified_time" content="2026-04-02T15:39:43.203Z">
 <meta property="article:author" content="miao">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -237,7 +237,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            11k 词 
+            13k 词 
           </div>
         </div>
         
@@ -428,7 +428,8 @@
     </div>
 </div>
 
-<p>&nbsp;</p>
+
+
 <div class="fold collapsed">
     <div class="fold-title">
         AsyncServer.cpp
@@ -697,7 +698,93 @@ std<span class="token double-colon punctuation">::</span>string <span class="tok
     </div>
 </div>
 
-<p>这里代码写的有点耦合了，Session类应该另起一个源文件，清楚一点</p>
+<p>这里代码写的有点耦合了，Session类应该另起一个源文件，清楚一点。</p>
+<p>此外，这里的async_read_some函数调用时不限制长度，造成了切包时的复杂处理，可以用async_read函数来指定长度，较为方便直观，这个api封装了async_read_some，免去手动划分长度。</p>
+<div class="fold collapsed">
+    <div class="fold-title">
+        handle_read_head
+    </div>
+    <div class="fold-content">
+        <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token class-name">Session</span><span class="token double-colon punctuation">::</span><span class="token function">handle_read_head</span><span class="token punctuation">(</span><span class="token keyword">const</span> boost<span class="token double-colon punctuation">::</span>system<span class="token double-colon punctuation">::</span>error_code <span class="token operator">&amp;</span>error<span class="token punctuation">,</span> size_t bytes_transfered<span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>shared_ptr<span class="token operator">&lt;</span>Session<span class="token operator">></span> _self_shared<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>error<span class="token punctuation">)</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>bytes_transfered <span class="token operator">!=</span> HEAD_SIZE<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+      std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"invalid header size is "</span> <span class="token operator">&lt;&lt;</span> bytes_transfered <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+      _server<span class="token operator">-></span><span class="token function">ClearSession</span><span class="token punctuation">(</span>_uuid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    std<span class="token double-colon punctuation">::</span><span class="token keyword">uint16_t</span> data_len_net <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">memcpy</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>data_len_net<span class="token punctuation">,</span> _recv_head_node<span class="token operator">-></span>_data<span class="token punctuation">,</span> HEAD_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> data_len <span class="token operator">=</span> boost<span class="token double-colon punctuation">::</span>asio<span class="token double-colon punctuation">::</span>detail<span class="token double-colon punctuation">::</span>socket_ops<span class="token double-colon punctuation">::</span><span class="token function">network_to_host_short</span><span class="token punctuation">(</span>data_len_net<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"data_len is "</span> <span class="token operator">&lt;&lt;</span> data_len <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>data_len <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token operator">||</span> data_len <span class="token operator">></span> max_length<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+      std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"invalid data length is "</span> <span class="token operator">&lt;&lt;</span> data_len <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+      _server<span class="token operator">-></span><span class="token function">ClearSession</span><span class="token punctuation">(</span>_uuid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    _recv_msg_node <span class="token operator">=</span> std<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">make_shared</span><span class="token generic class-name"><span class="token operator">&lt;</span>MsgNode<span class="token operator">></span></span></span><span class="token punctuation">(</span>data_len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    boost<span class="token double-colon punctuation">::</span>asio<span class="token double-colon punctuation">::</span><span class="token function">async_read</span><span class="token punctuation">(</span>_socket<span class="token punctuation">,</span> boost<span class="token double-colon punctuation">::</span>asio<span class="token double-colon punctuation">::</span><span class="token function">buffer</span><span class="token punctuation">(</span>_recv_msg_node<span class="token operator">-></span>_data<span class="token punctuation">,</span> data_len<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                            std<span class="token double-colon punctuation">::</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Session<span class="token double-colon punctuation">::</span>handle_read_body<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>placeholders<span class="token double-colon punctuation">::</span>_1<span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>placeholders<span class="token double-colon punctuation">::</span>_2<span class="token punctuation">,</span> _self_shared<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">else</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>error <span class="token operator">!=</span> boost<span class="token double-colon punctuation">::</span>asio<span class="token double-colon punctuation">::</span>error<span class="token double-colon punctuation">::</span>eof<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+      std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"handle read failed, error is "</span> <span class="token operator">&lt;&lt;</span> error<span class="token punctuation">.</span><span class="token function">what</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// Close();</span>
+    _server<span class="token operator">-></span><span class="token function">ClearSession</span><span class="token punctuation">(</span>_uuid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+    </div>
+</div>
+
+<div class="fold collapsed">
+    <div class="fold-title">
+        handle_read_body
+    </div>
+    <div class="fold-content">
+        <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">
+<span class="token keyword">void</span> <span class="token class-name">Session</span><span class="token double-colon punctuation">::</span><span class="token function">handle_read_body</span><span class="token punctuation">(</span><span class="token keyword">const</span> boost<span class="token double-colon punctuation">::</span>system<span class="token double-colon punctuation">::</span>error_code <span class="token operator">&amp;</span>error<span class="token punctuation">,</span> size_t bytes_transfered<span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>shared_ptr<span class="token operator">&lt;</span>Session<span class="token operator">></span> _self_shared<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>error<span class="token punctuation">)</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>bytes_transfered <span class="token operator">!=</span> <span class="token generic-function"><span class="token function">static_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span>size_t<span class="token operator">></span></span></span><span class="token punctuation">(</span>_recv_msg_node<span class="token operator">-></span>_total_len<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+      std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"invalid body size is "</span> <span class="token operator">&lt;&lt;</span> bytes_transfered <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+      _server<span class="token operator">-></span><span class="token function">ClearSession</span><span class="token punctuation">(</span>_uuid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    _recv_msg_node<span class="token operator">-></span>_cur_len <span class="token operator">=</span> <span class="token generic-function"><span class="token function">static_cast</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span></span></span><span class="token punctuation">(</span>bytes_transfered<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    _recv_msg_node<span class="token operator">-></span>_data<span class="token punctuation">[</span>_recv_msg_node<span class="token operator">-></span>_total_len<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'\0'</span><span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"receive data is "</span> <span class="token operator">&lt;&lt;</span> _recv_msg_node<span class="token operator">-></span>_data <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+
+    <span class="token function">Send</span><span class="token punctuation">(</span>_recv_msg_node<span class="token operator">-></span>_data<span class="token punctuation">,</span> _recv_msg_node<span class="token operator">-></span>_total_len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    _recv_head_node<span class="token operator">-></span><span class="token function">Clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    boost<span class="token double-colon punctuation">::</span>asio<span class="token double-colon punctuation">::</span><span class="token function">async_read</span><span class="token punctuation">(</span>_socket<span class="token punctuation">,</span> boost<span class="token double-colon punctuation">::</span>asio<span class="token double-colon punctuation">::</span><span class="token function">buffer</span><span class="token punctuation">(</span>_recv_head_node<span class="token operator">-></span>_data<span class="token punctuation">,</span> HEAD_SIZE<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                            std<span class="token double-colon punctuation">::</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Session<span class="token double-colon punctuation">::</span>handle_read_head<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>placeholders<span class="token double-colon punctuation">::</span>_1<span class="token punctuation">,</span> std<span class="token double-colon punctuation">::</span>placeholders<span class="token double-colon punctuation">::</span>_2<span class="token punctuation">,</span> _self_shared<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">else</span>
+  <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>error <span class="token operator">!=</span> boost<span class="token double-colon punctuation">::</span>asio<span class="token double-colon punctuation">::</span>error<span class="token double-colon punctuation">::</span>eof<span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+      std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"handle read body failed, error is "</span> <span class="token operator">&lt;&lt;</span> error<span class="token punctuation">.</span><span class="token function">what</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    _server<span class="token operator">-></span><span class="token function">ClearSession</span><span class="token punctuation">(</span>_uuid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+    </div>
+</div>
 <link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
         
       </div>
